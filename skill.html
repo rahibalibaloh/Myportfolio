@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skills — Rahib Ali</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="skill.css" />
+</head>
+<body class="fade-in">
+  <!-- 🧭 Navbar -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="index.html" class="nav-btn">Home</a></li>
+      <li><a href="about.html" class="nav-btn">About</a></li>
+      <li><a href="skills.html" class="nav-btn active">Skills</a></li>
+      <li><a href="contact.html" class="nav-btn">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- 🌌 Animated Skills Section -->
+  <main class="skills-wrapper">
+    <div class="nebula-bg"></div>
+
+    <section class="skills-card">
+      <h1 class="skills-title">My Skills</h1>
+      <div class="divider"></div>
+      <p class="skills-intro">
+        Every great product starts with clean code, creativity, and precision.  
+        Tap on any skill to explore details 👇
+      </p>
+
+      <div class="skills-grid">
+        <div class="skill">
+          <h3>HTML5</h3>
+          <p class="desc">Structure of the web. I build semantic and accessible layouts with modern standards.</p>
+        </div>
+
+        <div class="skill">
+          <h3>CSS3</h3>
+          <p class="desc">Crafting modern UI with animations, flex, and grid for pixel-perfect designs.</p>
+        </div>
+
+        <div class="skill">
+          <h3>JavaScript (ES6+)</h3>
+          <p class="desc">Dynamic logic, async code, DOM manipulation — I make pages come alive.</p>
+        </div>
+
+        <div class="skill">
+          <h3>React.js</h3>
+          <p class="desc">Building fast, component-based SPAs with hooks, context, and optimized re-renders.</p>
+        </div>
+
+        <div class="skill">
+          <h3>GSAP Animations</h3>
+          <p class="desc">Professional-grade motion effects for immersive UI transitions and storytelling.</p>
+        </div>
+
+        <div class="skill">
+          <h3>UI / UX</h3>
+          <p class="desc">User-centered design thinking and interface building with balance and simplicity.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 🦶 Footer -->
+  <footer>
+    <p>© 2025 Rahib Ali | All Rights Reserved</p>
+  </footer>
+
+  <script>
+    // 🔥 Skill Click Interactions
+    document.querySelectorAll(".skill").forEach((skill) => {
+      skill.addEventListener("click", () => {
+        skill.classList.toggle("open");
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+/* 🌍 Page Fade */
+body.fade-in {
+  animation: fadeIn 1s ease forwards;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.97); filter: blur(6px); }
+  to { opacity: 1; transform: scale(1); filter: blur(0); }
+}
+
+/* 🌌 Background */
+.skills-wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background: radial-gradient(circle at 30% 20%, #010514, #000);
+  overflow: hidden;
+}
+
+/* 💫 Nebula Glow */
+.nebula-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: conic-gradient(from 180deg, #00fff2, #00ffae, #0077ff, #00fff2);
+  filter: blur(160px);
+  opacity: 0.2;
+  animation: nebulaMove 20s linear infinite;
+}
+@keyframes nebulaMove {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* 🧊 Skills Card */
+.skills-card {
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 50px 40px;
+  max-width: 900px;
+  text-align: center;
+  color: #dffaff;
+  box-shadow: 0 0 60px rgba(0, 255, 255, 0.08);
+  transform: translateY(40px);
+  opacity: 0;
+  animation: rise 1.2s ease forwards;
+}
+@keyframes rise {
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* 🔥 Title */
+.skills-title {
+  font-size: 3rem;
+  background: linear-gradient(90deg, #00fff2, #00ffae);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  animation: glow 3s ease-in-out infinite alternate;
+}
+@keyframes glow {
+  from { text-shadow: 0 0 25px #00ffae, 0 0 50px #00fff2; }
+  to { text-shadow: 0 0 50px #00ffff, 0 0 90px #00ffb3; }
+}
+
+/* 💫 Divider */
+.divider {
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, #00fff2, #00ffae);
+  margin: 18px auto 30px;
+  border-radius: 4px;
+  box-shadow: 0 0 12px #00fff2;
+}
+
+/* 📜 Intro */
+.skills-intro {
+  color: #bdeaff;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  max-width: 700px;
+  margin: 0 auto 40px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeText 1s ease 0.4s forwards;
+}
+@keyframes fadeText {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 🧠 Skills Grid */
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 22px;
+}
+
+/* 🔮 Each Skill */
+.skill {
+  width: 250px;
+  padding: 18px;
+  border-radius: 15px;
+  background: rgba(0, 255, 255, 0.07);
+  border: 1px solid rgba(0, 255, 255, 0.25);
+  color: #00ffff;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+}
+.skill:hover {
+  background: linear-gradient(120deg, rgba(0, 255, 255, 0.3), rgba(0, 255, 170, 0.25));
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
+}
+
+/* 💥 Opened Skill */
+.skill.open {
+  background: rgba(0, 255, 255, 0.15);
+  border-color: #00fff2;
+  box-shadow: 0 0 35px rgba(0, 255, 255, 0.6);
+  transform: scale(1.08);
+}
+
+/* 🧾 Description Text */
+.desc {
+  color: #bfefff;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-top: 10px;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+.skill.open .desc {
+  opacity: 1;
+  max-height: 100px;
+  margin-top: 12px;
+}
+
+/* ⚡ Glow Pulse */
+.skill.open::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(0,255,255,0.15), transparent 70%);
+  opacity: 0.5;
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.05); }
+}

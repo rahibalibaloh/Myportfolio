@@ -3,123 +3,164 @@ body.fade-in {
   animation: pageAppear 1s ease forwards;
 }
 @keyframes pageAppear {
-  from { opacity: 0; transform: scale(0.97); filter: blur(5px); }
+  from { opacity: 0; transform: scale(0.97); filter: blur(6px); }
   to { opacity: 1; transform: scale(1); filter: blur(0); }
 }
 
-/* 💫 About Section */
-.about-container {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  background: radial-gradient(circle at 20% 20%, #020617 0%, #030014 100%);
-  overflow: hidden;
-  color: #e2e8f0;
+/* 💫 Wrapper Background */
+.about-wrapper {
   position: relative;
-  isolation: isolate;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 30% 20%, #020617, #000010 80%);
+  overflow: hidden;
 }
 
-/* ✨ Animated Background Glow */
-.about-container::before {
-  content: "";
+/* ✨ Floating Aura */
+.aura {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(0, 255, 213, 0.15), transparent 70%);
-  transform: translate(-50%, -50%);
-  animation: pulse 6s ease-in-out infinite alternate;
-  z-index: -1;
+  width: 700px;
+  height: 700px;
+  background: conic-gradient(from 0deg, #00fff2, #00ff9f, #007eff, #00fff2);
+  border-radius: 50%;
+  filter: blur(160px);
+  animation: rotateAura 15s linear infinite;
+  opacity: 0.3;
 }
-@keyframes pulse {
-  from { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
-  to { transform: translate(-50%, -50%) scale(1.2); opacity: 0.9; }
+@keyframes rotateAura {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
-/* 🔥 Heading */
-.about-container h1 {
-  font-size: 3.2rem;
-  background: linear-gradient(90deg, #00f5ff, #00ffb3, #8effff);
+/* 🧊 Glass Card */
+.about-card {
+  position: relative;
+  z-index: 5;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 255, 255, 0.15);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  padding: 50px 40px;
+  max-width: 850px;
+  text-align: center;
+  color: #dbefff;
+  box-shadow: 0 0 40px rgba(0, 255, 204, 0.08);
+  transform: translateY(50px);
+  opacity: 0;
+  animation: cardRise 1.3s ease forwards;
+}
+@keyframes cardRise {
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* 🔥 Title */
+.about-title {
+  font-size: 3rem;
+  background: linear-gradient(90deg, #00fff2, #00ffae, #00ffff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: titleGlow 3s ease-in-out infinite alternate;
+  text-transform: uppercase;
   letter-spacing: 2px;
-  margin-bottom: 14px;
+  animation: glow 2.8s ease-in-out infinite alternate;
 }
-@keyframes titleGlow {
-  from {
-    text-shadow: 0 0 15px #00ffb3, 0 0 30px #00f5ff;
-  }
-  to {
-    text-shadow: 0 0 25px #00ffff, 0 0 45px #00ffb3;
-  }
+@keyframes glow {
+  0% { text-shadow: 0 0 20px #00ffae, 0 0 40px #00fff2; }
+  100% { text-shadow: 0 0 40px #00ffff, 0 0 80px #00ffb3; }
 }
 
-/* 💡 Description Text */
-.about-container p {
-  max-width: 750px;
-  color: #b5e0ff;
-  font-size: 1.15rem;
-  line-height: 1.9;
-  margin: 0 auto;
+/* 💫 Divider Line */
+.divider {
+  width: 90px;
+  height: 3px;
+  margin: 18px auto 30px;
+  background: linear-gradient(90deg, #00fff2, #00ffae);
+  border-radius: 4px;
+  box-shadow: 0 0 10px #00fff2;
+}
+
+/* 💡 About Text */
+.about-text {
+  max-width: 720px;
+  margin: 0 auto 40px;
+  color: #bfe8ff;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  animation: fadeText 1.3s ease 0.5s forwards;
   opacity: 0;
   transform: translateY(20px);
-  animation: fadeSlideUp 1.2s ease 0.5s forwards;
 }
-@keyframes fadeSlideUp {
+@keyframes fadeText {
   to { opacity: 1; transform: translateY(0); }
 }
 .highlight {
-  color: #00ffcc;
+  color: #00ffee;
   font-weight: 600;
 }
 
-/* ⚡ Skill Bubbles */
-.skills-bubble {
-  margin-top: 35px;
+/* 🧠 Skills Grid */
+.skills-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 18px;
+  gap: 16px;
+  animation: floatIn 1.2s ease 1.2s forwards;
   opacity: 0;
-  transform: translateY(20px);
-  animation: floatIn 1s ease 1.2s forwards;
+  transform: translateY(25px);
 }
 @keyframes floatIn {
   to { opacity: 1; transform: translateY(0); }
 }
 
-.skills-bubble span {
-  background: rgba(0, 255, 204, 0.08);
-  border: 1px solid rgba(0, 255, 204, 0.6);
+.skills-grid span {
+  background: rgba(0, 255, 204, 0.1);
+  border: 1px solid rgba(0, 255, 255, 0.5);
   color: #00ffee;
   padding: 10px 22px;
   border-radius: 50px;
   font-size: 0.95rem;
   letter-spacing: 0.5px;
   transition: 0.35s ease;
-  box-shadow: 0 0 8px rgba(0, 255, 204, 0.2);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.15);
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
 }
-.skills-bubble span:hover {
-  background: linear-gradient(90deg, #00f5ff, #00ffb3);
+
+/* ✨ Ripple Hover Effect */
+.skills-grid span::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(0, 255, 255, 0.4), transparent 70%);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: 0.5s;
+}
+.skills-grid span:hover::after {
+  width: 250%;
+  height: 250%;
+  opacity: 1;
+}
+.skills-grid span:hover {
+  background: linear-gradient(90deg, #00fff2, #00ffae);
   color: #000;
   transform: scale(1.15);
   box-shadow: 0 0 25px rgba(0, 255, 204, 0.9);
 }
 
-/* 🌈 Floating Idle Effect */
-.skills-bubble span:nth-child(odd) {
+/* Floating Idle */
+.skills-grid span:nth-child(odd) {
   animation: bubbleFloat 4s ease-in-out infinite;
 }
-.skills-bubble span:nth-child(even) {
+.skills-grid span:nth-child(even) {
   animation: bubbleFloat 4s ease-in-out infinite 1.5s;
 }
 @keyframes bubbleFloat {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+  50% { transform: translateY(-6px); }
 }

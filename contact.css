@@ -1,0 +1,233 @@
+/* 🌍 Page Entry Animation */
+body.fade-in {
+  animation: fadeIn 1.2s ease forwards;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+
+/* 🌌 Background */
+.contact-section {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background: radial-gradient(circle at 25% 25%, #05081a, #000212 90%);
+  overflow: hidden;
+}
+
+/* ✨ Moving Lights */
+.background-glow {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(0,255,242,0.1), rgba(100,75,255,0.15), rgba(0,204,255,0.1));
+  filter: blur(80px);
+  animation: shiftGlow 10s ease-in-out infinite alternate;
+}
+@keyframes shiftGlow {
+  0% { transform: translate(-40px, -40px) scale(1); }
+  100% { transform: translate(40px, 40px) scale(1.1); }
+}
+
+/* 🪩 Floating Circles */
+.floating-circle {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(150px);
+  opacity: 0.2;
+  animation: float 12s ease-in-out infinite alternate;
+}
+.one {
+  width: 600px;
+  height: 600px;
+  top: -200px;
+  left: -250px;
+  background: #00d9ff;
+}
+.two {
+  width: 500px;
+  height: 500px;
+  bottom: -200px;
+  right: -200px;
+  background: #6a4dff;
+  animation-delay: 5s;
+}
+@keyframes float {
+  0% { transform: translate(0,0) scale(1); }
+  100% { transform: translate(50px, -30px) scale(1.1); }
+}
+
+/* 🧊 Contact Container */
+.contact-container {
+  z-index: 5;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 25px;
+  backdrop-filter: blur(10px);
+  text-align: center;
+  padding: 70px 40px;
+  box-shadow: 0 0 50px rgba(0, 255, 255, 0.05);
+  max-width: 850px;
+  width: 90%;
+  animation: floatUp 1.2s ease forwards;
+  transform: translateY(50px);
+  opacity: 0;
+}
+@keyframes floatUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* 🔥 Title */
+.title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #00e0ff, #63a3ff, #b87bff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: glowText 3s ease-in-out infinite alternate;
+  letter-spacing: 2px;
+}
+@keyframes glowText {
+  0% { text-shadow: 0 0 25px #00e0ff; }
+  100% { text-shadow: 0 0 45px #a37eff; }
+}
+
+/* 🧠 Subtitle */
+.subtitle {
+  color: #bfeaff;
+  font-size: 1rem;
+  max-width: 700px;
+  margin: 15px auto 45px;
+  line-height: 1.7;
+}
+
+/* 🌈 Social Grid */
+.social-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+/* 🎯 Social Card */
+.social-card {
+  width: 120px;
+  height: 120px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #00e0ff;
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+.social-card i {
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+  color: #6ef9ff;
+  transition: transform 0.4s ease, color 0.3s ease;
+}
+.social-card span {
+  font-size: 0.85rem;
+  color: #bdf7ff;
+  transition: color 0.3s ease;
+}
+
+/* 💫 Hover Effect */
+.social-card:hover {
+  transform: translateY(-6px) scale(1.07);
+  background: linear-gradient(135deg, #00e0ff, #b17dff);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
+}
+.social-card:hover i {
+  transform: scale(1.2) rotate(10deg);
+  color: #fff;
+}
+.social-card:hover span {
+  color: #fff;
+}
+
+/* 💚 Platform Colors */
+.whatsapp:hover { background: linear-gradient(135deg, #25D366, #00ffae); box-shadow: 0 0 25px #25D366; }
+.instagram:hover { background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045); box-shadow: 0 0 25px #fd1d1d; }
+.facebook:hover { background: linear-gradient(135deg, #1877F2, #00a2ff); box-shadow: 0 0 25px #1877F2; }
+.linkedin:hover { background: linear-gradient(135deg, #0077B5, #00a2ff); box-shadow: 0 0 25px #0077B5; }
+
+/* 💌 Email */
+.email-box {
+  margin-top: 30px;
+}
+.email-box p {
+  color: #cceeff;
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+}
+.email-link {
+  color: #5ceeff;
+  font-size: 1.05rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+.email-link:hover {
+  color: #fff;
+  text-shadow: 0 0 12px #00e0ff;
+}
+
+/* 🦶 Footer */
+footer {
+  text-align: center;
+  margin: 40px 0 20px;
+  color: #a3d8ff;
+  font-size: 0.85rem;
+}
+
+/* 🌐 Responsive */
+@media (max-width: 900px) {
+  .contact-container {
+    padding: 50px 25px;
+  }
+  .title {
+    font-size: 2.4rem;
+  }
+  .social-card {
+    width: 105px;
+    height: 105px;
+  }
+  .social-card i {
+    font-size: 1.6rem;
+  }
+}
+@media (max-width: 600px) {
+  .social-grid {
+    gap: 20px;
+  }
+  .social-card {
+    width: 95px;
+    height: 95px;
+  }
+  .social-card span {
+    font-size: 0.8rem;
+  }
+}
